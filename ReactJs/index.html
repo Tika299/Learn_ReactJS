@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+</head>
+
+<body>
+    <h1>Lê Xuân Vũ</h1>
+    <div id="root"></div>
+    <script>
+        //React
+        const h1 = React.createElement('h1',{
+            title: "Hello",
+            className: "heading"
+        },"Hello guys!")
+
+        const ul = React.createElement(
+            'ul',
+            {
+                id: "ul-id",
+                style: "color: red;"
+            },
+            React.createElement('li', null, "Javascript"),
+            React.createElement('li', null, "ReactJS")
+        )
+
+        const div = React.createElement(
+            'div',
+            {
+                className: "post-item"
+            },
+            React.createElement('h2', {title:"Học React tại F8"}, "Học ReactJS"),
+            React.createElement('p', null, "Học ReactJS từ cơ bản tới nâng cao"),
+        );
+        
+
+        //Get root element
+        const root = document.getElementById("root");
+
+        //React-DOM -> render UI
+
+        ReactDOM.render(div,root);
+
+
+        //TEST
+        // function MyButton() {
+        //     var Button = document.createElement("button");
+        //     Button.innerText = "I'm a button"
+        //     return (
+        //         Button
+        //     );
+        // }
+
+        // function MyApp() {
+        //     var div = document.createElement("div");
+        //     var h1 = document.createElement("h1");
+        //     h1.innerText = "Welcome to my app";
+        //     div.appendChild(h1);
+        //     div.appendChild(MyButton());
+        //     return (
+        //         div
+        //     );
+        // }
+        // var root = document.querySelector("#root");
+        // root.appendChild(MyApp())
+    </script>
+</body>
+
+</html>
