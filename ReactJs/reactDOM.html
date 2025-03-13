@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- Khi thêm type text/babel sẽ không gặp lỗi - không chạy -->
+    <script type="text/babel">
+
+        const courses =
+        [{
+        "id": 15,
+        "title": "HTML CSS Pro",
+        "slug": "htmlcss",
+        "description": "Kh\u00f3a h\u1ecdc HTML CSS Pro ph\u00f9 h\u1ee3p cho c\u1ea3 ng\u01b0\u1eddi m\u1edbi b\u1eaft \u0111\u1ea7u, l\u00ean t\u1edbi 8 d\u1ef1 \u00e1n tr\u00ean Figma, 300+ b\u00e0i t\u1eadp v\u00e0 flashcards, t\u1eb7ng 3+ games, t\u1eb7ng 20+ Figma \u0111\u1ec3 th\u1ef1c h\u00e0nh, c\u1ed9ng \u0111\u1ed3ng h\u1ecdc vi\u00ean Pro nhi\u1ec7t t\u00ecnh h\u1ed7 tr\u1ee3 nhau, mua m\u1ed9t l\u1ea7n h\u1ecdc m\u00e3i m\u00e3i.",
+        "image_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/15\/62f13d2424a47.png",
+        "icon_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/15\/62385d6c63dfa.png",
+        "price": 1299000,
+        "old_price": 2500000,
+        "is_pro": true,
+        "is_published": true,
+        "students_count": 0,
+        "videos_count": 591,
+        "duration": 420636,
+        "duration_text": "116h50p",
+        "user_progress": 0,
+        "last_completed_at": null,
+        "published_at": "2022-08-18T17:00:00.000000Z"
+    }, {
+        "id": 19,
+        "title": "JavaScript Pro",
+        "slug": "javascript",
+        "description": "Kh\u00f3a h\u1ecdc JavaScript Pro n\u00e0y l\u00e0 n\u1ec1n t\u1ea3ng v\u1eefng ch\u1eafc \u0111\u1ec3 h\u1ecdc ti\u1ebfp React, Vue.js, Node.js, v.v. M\u1ee5c ti\u00eau l\u00e0 gi\u00fap b\u1ea1n c\u00f3 th\u1ec3 l\u00e0m ch\u1ee7 JavaScript th\u00f4ng qua vi\u1ec7c am hi\u1ec3u c\u01a1 ch\u1ebf ho\u1ea1t \u0111\u1ed9ng c\u1ee7a ng\u00f4n ng\u1eef.",
+        "image_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/19\/66aa28194b52b.png",
+        "icon_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/19\/62f13cb685c81.png",
+        "price": 1399000,
+        "old_price": 3299000,
+        "is_pro": true,
+        "is_published": true,
+        "students_count": 0,
+        "videos_count": 193,
+        "duration": 129697,
+        "duration_text": "36h1p",
+        "user_progress": 0,
+        "last_completed_at": null,
+        "published_at": "2024-08-08T17:00:00.000000Z"
+    },
+    {
+        "id": 27,
+        "title": "Ng\u00f4n ng\u1eef Sass",
+        "slug": "sass",
+        "description": "\u0110\u00e2y l\u00e0 m\u1ed9t kh\u00f3a h\u1ecdc nh\u1ecf \u0111\u01b0\u1ee3c t\u00e1ch ra t\u1eeb 2 ch\u01b0\u01a1ng h\u1ecdc trong kh\u00f3a HTML CSS Pro. Ki\u1ebfn th\u1ee9c v\u1ec1 Sass trong kh\u00f3a n\u00e0y b\u1ea1n c\u00f3 th\u1ec3 \u00e1p d\u1ee5ng ngay v\u00e0o c\u00e1c d\u1ef1 \u00e1n c\u1ee7a b\u1ea1n.",
+        "image_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/27\/64e184ee5d7a2.png",
+        "icon_url": "https:\/\/files.fullstack.edu.vn\/f8-prod\/courses\/27\/64e0daf212fad.png",
+        "price": 299000,
+        "old_price": 400000,
+        "is_pro": true,
+        "is_published": true,
+        "students_count": 0,
+        "videos_count": 27,
+        "duration": 22690,
+        "duration_text": "6h18p",
+        "user_progress": 0,
+        "last_completed_at": null,
+        "published_at": "2023-08-19T15:06:00.000000Z"
+    }
+]
+        const CourseItem = ({ course }) => (
+            <div>
+                <h2 onClick={() => alert(course.title)}>{course.title}</h2>
+                <img src={course.image_url} alt="" />
+                <p>{course.description}</p>
+                <p>{course.price}</p>
+            </div>
+        )
+
+
+        function App() {
+            return (
+                <div id="course">
+                    {courses.map(course => (
+                        <CourseItem
+                            key={course.id}
+                            course={course}
+                        />
+                    ))}
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>
