@@ -2,3 +2,51 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+--phương thức creatElememt của Reat đối số đầu tiên nó nhận là types: nó nhận string, function/class
+Sử dụng function trong JSX bạn có thể làm như này 
+
+VD: function Header() { 
+
+Return ( <div className=”header”>New Header</div> ) 
+
+} 
+
+Const app = ( 
+
+<div> <Header/> <div> 
+
+) 
+
+class Content extends React.Component {
+    render() {
+        return() {
+            <div className="content">New Content</div>
+        }
+    }
+}
+
+Ex:
+<script type="text/babel">
+
+        function PostItems() {
+            return (
+                <div className="post-item">
+                    <img src="https://i.pinimg.com/1200x/fe/2c/c8/fe2cc809072026d63dcf85c5868f8506.jpg" alt="hsakhdadhkjashdjs"></img>
+                    <h2 className="post-title">C#(.NET) - Tương tác với office</h2>
+                    <p className="post-desc">Bạn có kiến thức ngôn ngữ C#</p>
+                    <p className="post-published">Một ngày trước</p>
+                </div>
+            )
+        }
+
+        const app = (
+            <div className = "post-list" >
+                <PostItems/>
+                <PostItems/>
+                <PostItems/>
+            </div>
+        )
+
+        ReactDOM.render(app, document.getElementById('root'))
+</script>
