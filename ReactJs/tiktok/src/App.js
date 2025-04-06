@@ -1,30 +1,41 @@
 import { useState } from 'react';
 
-const oder = [100,200,300]
 
 function App() {
-  //bạn có thể truyền tham số khởi tạo cứng như này
-  //const [counter,setCounter] = useState(1);
-  //Truyền theo dạng callback sẽ nhận giá trị trả về làm tham số khởi tạo
-  const [counter,setCounter] = useState(() => {
-    const total = oder.reduce((total,curl)=>total+curl)
-    console.log(total)
-    return total
-  });
+  const [job, setJob] = useState('')
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+    return storageJobs ?? []
+  })
 
-  function handelCounter() {
-    //Bạn có thể dụng như này cách phổ thông
-    setCounter(counter+1)
-    //Cách dùng callback, cách này giúp set lại biến counter trong khi thực hiện
-    //setCounter(prev => prev +1)
+  const handelSumit = () => {
+    setJobs(prev => {
+      const newJob = [...prev, job]
+
+      const jsonJobs = JSON.stringify(newJob)
+      localStorage.setItem('jobs',jsonJobs)
+
+      return newJob
+    })
+
+    setJob('')
   }
-  
+
   return (
-    <div className='App' style={{padding:20}}>
-      <h1>{counter}</h1>
-      <button onClick={handelCounter}>Click</button>
+    <div style={{padding: 32}}>
+      <input
+        value={job}
+        onChange={e => setJob(e.target.value)}
+      />
+      <button onClick={handelSumit}>Add</button>
+
+      <ul>
+        {jobs.map((job, index) => (
+          <li key={index}>{job}</li>
+        ))}
+      </ul>
     </div>
-  );
+  )
 }
 
 export default App;
