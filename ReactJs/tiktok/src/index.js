@@ -4,6 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//Fake Chat
+function emitChat(id) {
+
+  setInterval(() => {
+    window.dispatchEvent(
+      new CustomEvent(`lesson-${id}`,{
+        detail: `Nội dung chat của lesson ${id}`
+      })
+    )
+  },2000)
+
+}
+emitChat(1)
+emitChat(2)
+emitChat(3)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
