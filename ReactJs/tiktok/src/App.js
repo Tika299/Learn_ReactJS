@@ -1,20 +1,18 @@
 import { useState } from 'react';
-import Content from './Content';
-import FakeChat from './FakeChat';
-
+import Test from './Test';
 
 
 function App() {
-  const [showChat, setShowChat] = useState(false);
+  const [count, setCount] = useState(0);
+
   const handleClick = () => {
-    setShowChat(!showChat);
+    setCount(prevCount => prevCount + 1);
   }
 
   return (
-    <div style={{padding:20}}>
-      {/* {<Content/>} */}
-      <button onClick={handleClick}>Toggle</button>
-      {showChat && <FakeChat/>}
+    <div style={{padding:'10px 32px'}}>
+      <Test onIncrease={handleClick}/>
+      <h1>Count: {count}</h1>
     </div>
   )
 }
